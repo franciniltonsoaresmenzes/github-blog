@@ -22,9 +22,9 @@ export function CardProfile() {
         </p>
         <footer>
           <CardProfileTags>
-            <li>cameronwll</li>
-            <li>Rocketseat</li>
-            <li>32 seguidores</li>
+            <span>cameronwll</span>
+            <span>Rocketseat</span>
+            <span>32 seguidores</span>
           </CardProfileTags>
         </footer>
       </div>

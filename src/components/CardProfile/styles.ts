@@ -25,7 +25,9 @@ export const CardProfileHeader = styled.header`
   margin-bottom: 0.5rem;
 `
 
-export const CardProfileTags = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(1fr,1f));
+export const CardProfileTags = styled.div`
+  margin-top: 1.5rem;
+
+  display: flex;
+  gap: 1.5rem;
 `

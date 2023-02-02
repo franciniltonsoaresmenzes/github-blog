@@ -19,9 +19,13 @@ export const DefaulLayoutHeader = styled.header`
 `
 
 export const DefaulLayoutMain = styled.main`
-  max-width: 54rem;
+  max-width: 56rem;
+
+  padding-right: 1rem;
+  padding-left: 1rem;
 
   margin-top: -88px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 8rem;
 `

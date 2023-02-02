@@ -1,10 +1,16 @@
+import logoGitHubBlog from '../../asset/logo.svg'
 import { Outlet } from 'react-router-dom'
+import { DefaulLayoutHeader, DefaulLayoutMain } from './styles'
 
 export function DefaultLayout() {
   return (
     <>
-      <header>header</header>
-      <Outlet />
+      <DefaulLayoutHeader>
+        <img src={logoGitHubBlog} alt="" />
+      </DefaulLayoutHeader>
+      <DefaulLayoutMain>
+        <Outlet />
+      </DefaulLayoutMain>
     </>
   )
 }

@@ -30,4 +30,16 @@ export const CardProfileTags = styled.div`
 
   display: flex;
   gap: 1.5rem;
+
+  span {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    svg {
+      color: ${(props) => props.theme.colors.brand.label};
+      width: 18px;
+      height: 18px;
+    }
+  }
 `

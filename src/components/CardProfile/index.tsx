@@ -1,4 +1,12 @@
 import avatarProfile from '../../asset/avatar.png'
+import { Links, Title, Paragraph } from '../Typography'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faArrowUpRightFromSquare,
+  faBuilding,
+  faUserGroup,
+} from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
   AvartarProfile,
   CardProfileContainer,
@@ -12,19 +20,31 @@ export function CardProfile() {
       <AvartarProfile src={avatarProfile} alt="" />
       <div>
         <CardProfileHeader>
-          <h1>Cameron Williamson</h1>
-          <a href="#">github</a>
+          <Title>Cameron Williamson</Title>
+          <Links href="#">
+            github
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+          </Links>
         </CardProfileHeader>
-        <p>
+        <Paragraph>
           Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
           viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
           pulvinar vel mass
-        </p>
+        </Paragraph>
         <footer>
           <CardProfileTags>
-            <span>cameronwll</span>
-            <span>Rocketseat</span>
-            <span>32 seguidores</span>
+            <Paragraph as="span" variantColor="subtitle">
+              <FontAwesomeIcon icon={faGithub} />
+              cameronwll
+            </Paragraph>
+            <Paragraph as="span" variantColor="subtitle">
+              <FontAwesomeIcon icon={faBuilding} />
+              Rocketseat
+            </Paragraph>
+            <Paragraph as="span" variantColor="subtitle">
+              <FontAwesomeIcon icon={faUserGroup} />
+              32 seguidores
+            </Paragraph>
           </CardProfileTags>
         </footer>
       </div>

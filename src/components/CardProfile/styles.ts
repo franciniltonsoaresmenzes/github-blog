@@ -11,6 +11,11 @@ export const CardProfileContainer = styled.section`
 
   display: flex;
   gap: 2rem;
+
+  @media (max-width: 440px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const AvartarProfile = styled.img`
@@ -41,5 +46,9 @@ export const CardProfileTags = styled.div`
       width: 18px;
       height: 18px;
     }
+  }
+
+  @media screen and (max-width: 638px) {
+    display: block;
   }
 `

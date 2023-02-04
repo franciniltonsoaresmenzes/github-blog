@@ -33,4 +33,8 @@ export const CardProfileTags = styled.div`
       height: 18px;
     }
   }
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
 `

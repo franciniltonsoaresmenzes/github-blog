@@ -4,7 +4,7 @@ import { PostContent } from './styles'
 export function Post() {
   return (
     <>
-      <HeaderCard />{' '}
+      <HeaderCard />
       <PostContent>
         Programming languages all have built-in data structures, but these often
         differ from one language to another. This article attempts to list the

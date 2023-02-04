@@ -13,4 +13,9 @@ export const Inputs = styled.input`
   line-height: 1.6;
   font-size: ${(props) => props.theme.textSize.text.m};
   font-weight: 400;
+  font-size: ${(props) => props.theme.textSize.text.m};
+
+  &:focus {
+    color: ${(props) => props.theme.colors.brand.text};
+  }
 `

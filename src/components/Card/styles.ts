@@ -13,6 +13,10 @@ export const CardContainer = styled.article`
     justify-content: space-between;
     gap: 1rem;
     margin-bottom: 1.25rem;
+
+    span {
+      min-width: 53px;
+    }
   }
 
   > p {

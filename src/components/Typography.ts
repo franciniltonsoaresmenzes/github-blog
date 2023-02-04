@@ -13,7 +13,7 @@ export const Links = styled.a`
   text-transform: uppercase;
 
   color: ${(props) => props.theme.colors.brand.blue};
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
 
   &:hover {
     border-bottom: 2px solid ${(props) => props.theme.colors.brand.blue};
@@ -21,27 +21,28 @@ export const Links = styled.a`
 `
 
 interface TitleProps {
-  variantColor?: 'title'
-  variantSize?: 'l'
+  variantColor?: 'title' | 'subtitle'
+  variantSize?: 'l' | 's' | 'm'
 }
 
 export const Title = styled.h1<TitleProps>`
   font-weight: 700;
   font-size: ${({ theme, variantSize }) =>
     theme.textSize.title[variantSize ?? 'l']};
-  line-height: 130%;
+  line-height: 1.6;
 
   color: ${({ theme, variantColor }) =>
     theme.colors.brand[variantColor ?? 'title']};
 `
 
 interface ParagraphProps {
-  variantColor?: 'text' | 'subtitle'
-  variantSize?: 'm'
+  variantColor?: 'text' | 'subtitle' | 'span'
+  variantSize?: 'm' | 's'
+  fontWeight?: number
 }
 
 export const Paragraph = styled.p<ParagraphProps>`
-  font-weight: 400;
+  font-weight: ${({ fontWeight }) => fontWeight ?? 400};
   font-size: ${({ theme, variantSize }) =>
     theme.textSize.text[variantSize ?? 'm']};
   line-height: 160%;

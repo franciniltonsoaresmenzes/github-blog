@@ -1,14 +1,19 @@
+import { Paragraph, Title } from '../Typography'
 import { CardContainer } from './styles'
 
 export function Card() {
   return (
     <CardContainer>
       <header>
-        <h1>JavaScript data types and data structures</h1>
-        <span>Há 1 dia</span>
+        <Title as="h2" variantSize="m">
+          JavaScript data types and data structures
+        </Title>
+        <Paragraph as="span" variantColor="span" variantSize="s">
+          Há 1 dia
+        </Paragraph>
       </header>
 
-      <p>
+      <Paragraph>
         Programming languages all have built-in data structures, but these often
         differ from one language to another. This article attempts to list the
         built-in data structures available in JavaScript and what properties
@@ -18,7 +23,7 @@ export function Card() {
         JavaScript are not directly associated with any particular value type,
         and any variable can be assigned (and re-assigned) values of all types:
         let foo = 42; // foo is now a
-      </p>
+      </Paragraph>
     </CardContainer>
   )
 }

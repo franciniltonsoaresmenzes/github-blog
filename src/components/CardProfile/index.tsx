@@ -21,7 +21,10 @@ export function CardProfile() {
       <div>
         <CardProfileHeader>
           <Title>Cameron Williamson</Title>
-          <Links href="#">
+          <Links
+            href="https://github.com/franciniltonsoaresmenzes/"
+            target="_blank"
+          >
             github
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </Links>

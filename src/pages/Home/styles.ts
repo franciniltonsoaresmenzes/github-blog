@@ -16,4 +16,8 @@ export const HomeGridCards = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 2rem;
+
+  a {
+    color: ${(props) => props.theme.colors.brand.text};
+  }
 `

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Card } from '../../components/Card'
 import { CardProfile } from '../../components/CardProfile'
 import { Inputs } from '../../components/Inputs'
@@ -17,7 +18,9 @@ export function Home() {
       </HomeSearchInput>
 
       <HomeGridCards>
-        <Card />
+        <Link to="post">
+          <Card />
+        </Link>
         <Card />
         <Card />
         <Card />

@@ -12,13 +12,15 @@ import {
   CardProfileHeader,
   CardProfileTags,
 } from './styles'
-import { useFetch } from '../../hooks/useUrlFetch'
-import { UserGitHub } from '../../models/UserModel'
+import { useQuery } from '@tanstack/react-query'
+import { fetchPerfil } from '../../api/api'
 
 export function CardProfile() {
-  const { data, isFetching } = useFetch<UserGitHub>(
-    'users/franciniltonsoaresmenzes',
-  )
+  const { data, isFetching } = useQuery({
+    queryKey: ['perfil'],
+    queryFn: () => fetchPerfil('franciniltonsoaresmenzes'),
+    staleTime: 1000,
+  })
 
   return (
     <CardProfileContainer>

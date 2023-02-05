@@ -30,7 +30,7 @@ export function Home() {
 
       <HomeGridCards>
         {repositorios.map((repo) => (
-          <Link to="post" key={repo.id}>
+          <Link to={`post/${repo.number}`} key={repo.id}>
             <Card data={repo} />
           </Link>
         ))}

@@ -17,12 +17,17 @@ export function SearchForm() {
     (context) => context.queryRepos,
   )
 
-  const { register, handleSubmit, reset } = useForm<SearchFormType>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<SearchFormType>({
     resolver: zodResolver(schemaQuery),
   })
 
-  function handleNewQuery({ query }: SearchFormType) {
-    queryRepos(query)
+  async function handleNewQuery({ query }: SearchFormType) {
+    await queryRepos(query)
     reset()
   }
 
@@ -31,6 +36,7 @@ export function SearchForm() {
       <Inputs
         type="text"
         placeholder="Buscar conteúdo"
+        disabled={isSubmitting}
         {...register('query')}
       />
     </form>

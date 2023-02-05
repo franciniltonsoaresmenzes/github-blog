@@ -3,10 +3,15 @@ import { createContext } from 'use-context-selector'
 import { api } from '../lib/axios'
 
 export interface Item {
+  number: number
+  url: string
   title: string
   id: number
   created_at: string
   body: string
+  user: {
+    login: string
+  }
 }
 
 export interface ReposGithub {
@@ -30,14 +35,14 @@ export function ReposGitHubProvider({ children }: ReposGitHubProviderProps) {
 
   const queryRepos = useCallback(async (query?: string) => {
     const response = await api.get<ReposGithub>('search/issues', {
-      params: { q: query },
+      params: { q: query + 'repo:Ferreira94/github-blog' },
     })
 
     setRepositorios(response.data.items)
   }, [])
 
   useEffect(() => {
-    queryRepos('Primeiros passo Reactjs')
+    queryRepos('')
   }, [])
 
   return (

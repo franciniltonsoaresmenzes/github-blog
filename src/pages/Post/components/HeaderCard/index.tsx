@@ -13,9 +13,22 @@ import {
   CardProfileTags,
 } from './styles'
 import { useNavigate } from 'react-router-dom'
+import { useFetch } from '../../../../hooks/useUrlFetch'
+import { UserGitHub } from '../../../../models/UserModel'
+import { formatDistanceToNow } from 'date-fns'
+import ptBr from 'date-fns/locale/pt-BR'
 
-export function HeaderCard() {
+interface HeaderCardProps {
+  user: string | null
+  title: string
+  date: string
+  commnent: number
+}
+
+export function HeaderCard({ user, title, date, commnent }: HeaderCardProps) {
   const navigate = useNavigate()
+
+  const { data } = useFetch<UserGitHub>(`users/${user}`)
   return (
     <CardProfileContainer>
       <CardProfileHeader>
@@ -23,28 +36,29 @@ export function HeaderCard() {
           <FontAwesomeIcon icon={faChevronLeft} />
           voltar
         </Links>
-        <Links
-          href="https://github.com/franciniltonsoaresmenzes/"
-          target="_blank"
-        >
+        <Links href={data?.html_url} target="_blank">
           ver no github
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </Links>
       </CardProfileHeader>
 
-      <Title>JavaScript data types and data structures</Title>
+      <Title>{title}</Title>
       <footer>
         <CardProfileTags>
           <Paragraph as="span" variantColor="subtitle">
             <FontAwesomeIcon icon={faGithub} />
-            cameronwll
+            {data?.login}
           </Paragraph>
           <Paragraph as="span" variantColor="subtitle">
             <FontAwesomeIcon icon={faCalendarDay} />
-            Há 1 dia
+            {formatDistanceToNow(new Date(date), {
+              addSuffix: true,
+              locale: ptBr,
+            })}
           </Paragraph>
           <Paragraph as="span" variantColor="subtitle">
-            <FontAwesomeIcon icon={faComment} />5 comentários
+            <FontAwesomeIcon icon={faComment} />
+            {commnent} comentários
           </Paragraph>
         </CardProfileTags>
       </footer>

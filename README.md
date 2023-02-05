@@ -16,7 +16,7 @@
    <img width="auto" style="border-radius: 10px" height="240" alt="Class-02" title="Class-02" src="/public/preview/preview.gif" />
    <img width="auto" style="border-radius: 10px" height="240" alt="Class-02" title="Class-02" src="/public/preview/preview-busca.gif" />
  <h3>Funcionalidades</h3>
- Aplicação desenvolvida com focu em desenpenho dos componentes e consumo de api's.
+ Aplicação desenvolvida com foco em desenpenho dos componentes e consumo de api's.
  
  ## :hammer_and_wrench: Tecnologias
   * __React__ + __Vite__ + __Typescript__

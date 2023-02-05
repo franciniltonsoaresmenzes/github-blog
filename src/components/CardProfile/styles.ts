@@ -12,6 +12,10 @@ export const CardProfileContainer = styled.section`
   display: flex;
   gap: 2rem;
 
+  > div {
+    flex: 1;
+  }
+
   @media (max-width: 440px) {
     flex-direction: column;
     align-items: center;

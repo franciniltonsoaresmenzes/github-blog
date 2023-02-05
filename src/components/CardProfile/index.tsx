@@ -1,4 +1,3 @@
-import avatarProfile from '../../asset/avatar.png'
 import { Links, Title, Paragraph } from '../Typography'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -13,44 +12,47 @@ import {
   CardProfileHeader,
   CardProfileTags,
 } from './styles'
+import { useFetch } from '../../hooks/useUrlFetch'
+import { UserGitHub } from '../../models/UserModel'
 
 export function CardProfile() {
+  const { data, isFetching } = useFetch<UserGitHub>(
+    'users/franciniltonsoaresmenzes',
+  )
+
   return (
     <CardProfileContainer>
-      <AvartarProfile src={avatarProfile} alt="" />
-      <div>
-        <CardProfileHeader>
-          <Title>Cameron Williamson</Title>
-          <Links
-            href="https://github.com/franciniltonsoaresmenzes/"
-            target="_blank"
-          >
-            github
-            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          </Links>
-        </CardProfileHeader>
-        <Paragraph>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass
-        </Paragraph>
-        <footer>
-          <CardProfileTags>
-            <Paragraph as="span" variantColor="subtitle">
-              <FontAwesomeIcon icon={faGithub} />
-              cameronwll
-            </Paragraph>
-            <Paragraph as="span" variantColor="subtitle">
-              <FontAwesomeIcon icon={faBuilding} />
-              Rocketseat
-            </Paragraph>
-            <Paragraph as="span" variantColor="subtitle">
-              <FontAwesomeIcon icon={faUserGroup} />
-              32 seguidores
-            </Paragraph>
-          </CardProfileTags>
-        </footer>
-      </div>
+      {!isFetching && <AvartarProfile src={data?.avatar_url} alt="" />}
+      {!isFetching && (
+        <div>
+          <CardProfileHeader>
+            <Title>{data?.name}</Title>
+            <Links href={data?.html_url} target="_blank">
+              github
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </Links>
+          </CardProfileHeader>
+          <Paragraph>{data?.bio}</Paragraph>
+          <footer>
+            <CardProfileTags>
+              <Paragraph as="span" variantColor="subtitle">
+                <FontAwesomeIcon icon={faGithub} />
+                {data?.login}
+              </Paragraph>
+              {data?.company && (
+                <Paragraph as="span" variantColor="subtitle">
+                  <FontAwesomeIcon icon={faBuilding} />
+                  {data.company}
+                </Paragraph>
+              )}
+              <Paragraph as="span" variantColor="subtitle">
+                <FontAwesomeIcon icon={faUserGroup} />
+                {data?.followers} seguidores
+              </Paragraph>
+            </CardProfileTags>
+          </footer>
+        </div>
+      )}
     </CardProfileContainer>
   )
 }

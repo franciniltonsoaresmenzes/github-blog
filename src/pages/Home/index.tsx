@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
+import { useContextSelector } from 'use-context-selector'
 import { Card } from '../../components/Card'
 import { CardProfile } from '../../components/CardProfile'
 import { Inputs } from '../../components/Inputs'
 import { Paragraph, Title } from '../../components/Typography'
-import { useFetch } from '../../hooks/useUrlFetch'
-import { ReposGithub } from '../../models/ReposModel'
+import { ReposGitHubContext } from '../../contexts/ReposGitHub'
 import { HomeGridCards, HomeSearchInput } from './styles'
 
 export function Home() {
-  const { data, isFetching } = useFetch<ReposGithub>('search/issues', {
-    params: { q: 'Primeiros passo Reactjs' },
-  })
+  const repositorios = useContextSelector(
+    ReposGitHubContext,
+    (context) => context.repositorios,
+  )
 
   return (
     <>
@@ -21,22 +22,20 @@ export function Home() {
             Publicações
           </Title>
           <Paragraph as="span" variantColor="span" variantSize="s">
-            {data?.total_count} publicações
+            {repositorios.length} publicações
           </Paragraph>
         </div>
 
         <Inputs type="text" placeholder="Buscar conteúdo" />
       </HomeSearchInput>
 
-      {!isFetching && (
-        <HomeGridCards>
-          {data?.items.map((repo) => (
-            <Link to="post" key={repo.id}>
-              <Card data={repo} />
-            </Link>
-          ))}
-        </HomeGridCards>
-      )}
+      <HomeGridCards>
+        {repositorios.map((repo) => (
+          <Link to="post" key={repo.id}>
+            <Card data={repo} />
+          </Link>
+        ))}
+      </HomeGridCards>
     </>
   )
 }

@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import { useContextSelector } from 'use-context-selector'
 import { Card } from '../../components/Card'
 import { CardProfile } from '../../components/CardProfile'
-import { Inputs } from '../../components/Inputs'
 import { Paragraph, Title } from '../../components/Typography'
 import { ReposGitHubContext } from '../../contexts/ReposGitHub'
+import { SearchForm } from './components/SearchForm'
 import { HomeGridCards, HomeSearchInput } from './styles'
 
 export function Home() {
@@ -25,8 +25,7 @@ export function Home() {
             {repositorios.length} publicações
           </Paragraph>
         </div>
-
-        <Inputs type="text" placeholder="Buscar conteúdo" />
+        <SearchForm />
       </HomeSearchInput>
 
       <HomeGridCards>

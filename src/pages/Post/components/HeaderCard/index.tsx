@@ -13,10 +13,10 @@ import {
   CardProfileTags,
 } from './styles'
 import { useNavigate } from 'react-router-dom'
-import { useFetch } from '../../../../hooks/useUrlFetch'
-import { UserGitHub } from '../../../../models/UserModel'
 import { formatDistanceToNow } from 'date-fns'
 import ptBr from 'date-fns/locale/pt-BR'
+import { useQuery } from '@tanstack/react-query'
+import { fetchPerfil } from '../../../../api/api'
 
 interface HeaderCardProps {
   user: string | null
@@ -28,7 +28,10 @@ interface HeaderCardProps {
 export function HeaderCard({ user, title, date, commnent }: HeaderCardProps) {
   const navigate = useNavigate()
 
-  const { data } = useFetch<UserGitHub>(`users/${user}`)
+  const { data } = useQuery({
+    queryKey: ['author'],
+    queryFn: () => fetchPerfil(user as string),
+  })
   return (
     <CardProfileContainer>
       <CardProfileHeader>

@@ -1,30 +1,20 @@
 /* eslint-disable react/no-children-prop */
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { useParams } from 'react-router-dom'
-import { useFetch } from '../../hooks/useUrlFetch'
 import { HeaderCard } from './components/HeaderCard'
 import { PostContent } from './styles'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-
-interface PostProps {
-  title: string
-  body: string
-  created_at: string
-  comments: number
-  user: {
-    login: string
-    html_url: string
-    url: string
-  }
-}
+import { useQuery } from '@tanstack/react-query'
+import { fetchRepositorio } from '../../api/api'
 
 export function Post() {
   const { repoId } = useParams()
 
-  const { data, isFetching } = useFetch<PostProps>(
-    `https://api.github.com/repos/Ferreira94/github-blog/issues/${repoId?.toString()}`,
-  )
+  const { data, isFetching } = useQuery({
+    queryKey: ['repo'],
+    queryFn: () => fetchRepositorio(repoId as string),
+  })
 
   return (
     <>

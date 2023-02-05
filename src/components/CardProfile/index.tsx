@@ -14,6 +14,7 @@ import {
 } from './styles'
 import { useQuery } from '@tanstack/react-query'
 import { fetchPerfil } from '../../api/api'
+import { LoadingC } from '../Loading'
 
 export function CardProfile() {
   const { data, isFetching } = useQuery({
@@ -21,6 +22,8 @@ export function CardProfile() {
     queryFn: () => fetchPerfil('franciniltonsoaresmenzes'),
     staleTime: 1000,
   })
+
+  console.log(isFetching)
 
   return (
     <CardProfileContainer>
@@ -35,6 +38,7 @@ export function CardProfile() {
             </Links>
           </CardProfileHeader>
           <Paragraph>{data?.bio}</Paragraph>
+          {isFetching && <LoadingC />}
           <footer>
             <CardProfileTags>
               <Paragraph as="span" variantColor="subtitle">

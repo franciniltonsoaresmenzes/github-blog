@@ -13,8 +13,8 @@
   <div>
   <h2 align="center" >Telas</h2>
 
-   <img width="auto" style="border-radius: 10px" height="250" alt="Class-02" title="Class-02" src="/public/preview/preview.gif" />
-   <img width="auto" style="border-radius: 10px" height="250" alt="Class-02" title="Class-02" src="/public/preview/preview-busca.gif" />
+   <img width="auto" style="border-radius: 10px" height="240" alt="Class-02" title="Class-02" src="/public/preview/preview.gif" />
+   <img width="auto" style="border-radius: 10px" height="240" alt="Class-02" title="Class-02" src="/public/preview/preview-busca.gif" />
  <h3>Funcionalidades</h3>
  Aplicação desenvolvida com focu em desenpenho dos componentes e consumo de api's.
  

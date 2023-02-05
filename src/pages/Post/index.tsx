@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { useParams } from 'react-router-dom'
 import { useFetch } from '../../hooks/useUrlFetch'

@@ -20,7 +20,7 @@ export function Home() {
       <HomeSearchInput>
         <div>
           <Title as="span" variantColor="subtitle" variantSize="s">
-            Publicações
+            Publicações:
           </Title>
           <Paragraph as="span" variantColor="span" variantSize="s">
             {data?.items.length} publicações
